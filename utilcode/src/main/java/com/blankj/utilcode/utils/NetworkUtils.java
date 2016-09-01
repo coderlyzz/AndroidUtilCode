@@ -52,7 +52,7 @@ public class NetworkUtils {
      * @return NetworkInfo
      */
     private static NetworkInfo getActiveNetworkInfo(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context
+        ConnectivityManager cm = (ConnectivityManager) context.getApplicationContext()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo();
     }
@@ -101,7 +101,7 @@ public class NetworkUtils {
      * @return {@code true}: 连接<br>{@code false}: 未连接
      */
     public static boolean isWifiConnected(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context
+        ConnectivityManager cm = (ConnectivityManager) context.getApplicationContext()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm != null && cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
     }
@@ -114,7 +114,7 @@ public class NetworkUtils {
      * @return 移动网络运营商名称
      */
     public static String getNetworkOperatorName(Context context) {
-        TelephonyManager tm = (TelephonyManager) context
+        TelephonyManager tm = (TelephonyManager) context.getApplicationContext()
                 .getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getNetworkOperatorName() : null;
     }
@@ -132,7 +132,7 @@ public class NetworkUtils {
      * </ul>
      */
     public static int getPhoneType(Context context) {
-        TelephonyManager tm = (TelephonyManager) context
+        TelephonyManager tm = (TelephonyManager) context.getApplicationContext()
                 .getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getPhoneType() : -1;
     }
